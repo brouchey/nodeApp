@@ -1,8 +1,10 @@
 var renderer = require("./renderer.js");
 
+var htmlHeader = {'Content-Type': 'text/html'};
+
 function home(request, response) {
     if(request.url == "/") {
-        response.writeHead(200, {'Content-type': "text/html"});
+        response.writeHead(200, htmlHeader);
 		renderer.view("header", { }, response);     // { } because no values need to be passed
 		renderer.view("home", { }, response);
 		renderer.view("footer", { }, response);
@@ -12,7 +14,7 @@ function home(request, response) {
 
 function contact(request, response) {
     if(request.url == "/contact") {
-        response.writeHead(200, {'Content-type': "text/html"});
+        response.writeHead(200, htmlHeader);
         renderer.view("header", { }, response);
 		renderer.view("contact", { }, response);
 		renderer.view("footer", { }, response);
@@ -22,7 +24,7 @@ function contact(request, response) {
 
 function about(request, response) {
     if(request.url == "/about") {
-        response.writeHead(200, {'Content-type': "text/html"});
+        response.writeHead(200, htmlHeader);
         renderer.view("header", { }, response);
 		renderer.view("about", { }, response);
 		renderer.view("footer", { }, response);
