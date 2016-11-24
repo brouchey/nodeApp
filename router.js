@@ -1,21 +1,32 @@
+var renderer = require("./renderer.js");
+
 function home(request, response) {
     if(request.url == "/") {
         response.writeHead(200, {'Content-type': "text/plain"});
-        response.end("Home\n");
+		renderer.view("header", { }, response);     // { } because no values need to be passed
+		renderer.view("home", { }, response);
+		renderer.view("footer", { }, response);
+		response.end();
     }
 }
 
 function contact(request, response) {
     if(request.url == "/contact") {
         response.writeHead(200, {'Content-type': "text/plain"});
-        response.end("Contact\n");
+        renderer.view("header", { }, response);
+		renderer.view("contact", { }, response);
+		renderer.view("footer", { }, response);
+		response.end();
     }
 }
 
 function about(request, response) {
     if(request.url == "/about") {
         response.writeHead(200, {'Content-type': "text/plain"});
-        response.end("About\n");
+        renderer.view("header", { }, response);
+		renderer.view("about", { }, response);
+		renderer.view("footer", { }, response);
+		response.end();
     }
 }
 
